@@ -1,0 +1,21 @@
+import java.io.FileWriter; 
+import java.io.IOException; 
+import java.util.Scanner; 
+public class AppendToFile { 
+public static void main(String[] args) { 
+Scanner sc = new Scanner(System.in); 
+String fileName = "example.txt"; // existing file name 
+try { 
+FileWriter writer = new FileWriter(fileName, true); 
+System.out.print("Enter text to append: "); 
+String text = sc.nextLine(); 
+writer.write(text + "\n"); // append text with newline 
+writer.close(); 
+System.out.println("Text appended successfully to " + fileName); 
+} catch (IOException e) { 
+System.out.println("An error occurred while writing to file."); 
+e.printStackTrace(); 
+} 
+sc.close(); 
+} 
+}
