@@ -1,0 +1,28 @@
+import java.util.Scanner; 
+public class Main { 
+public static void main(String[] args) { 
+int balance = 5000; // Initial balance 
+Scanner sc = new Scanner(System.in); 
+try { 
+System.out.print("Enter amount to withdraw: "); 
+int withdrawAmount = sc.nextInt(); // User input 
+if (withdrawAmount <= 0) { 
+throw new Exception("Withdrawal amount must be greater than zero."); 
+} 
+if (withdrawAmount > balance) { 
+throw new Exception("Insufficient balance!"); 
+} 
+balance -= withdrawAmount; 
+System.out.println("Withdrawal successful. Remaining balance: " + balance); 
+ 
+ 
+} 
+catch (Exception e) { 
+System.out.println("Error: " + e.getMessage()); 
+} 
+finally { 
+System.out.println("Transaction completed. Please collect your card."); 
+sc.close(); // Closing scanner in finally to ensure it always happens 
+} 
+} 
+}
