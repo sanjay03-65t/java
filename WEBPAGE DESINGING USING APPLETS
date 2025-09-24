@@ -1,0 +1,32 @@
+ import java.awt.*; 
+import java.awt.event.*; 
+import javax.swing.*; 
+public class GreetingWebPage extends JFrame implements ActionListener { 
+private JTextField nameField; 
+private JLabel greetingLabel; 
+public GreetingWebPage() { 
+super("My Simple Web Page"); 
+setSize(400, 200); 
+setDefaultCloseOperation(EXIT_ON_CLOSE); 
+setLayout(new BorderLayout()); 
+add(new JLabel("Welcome to My Web Page", SwingConstants.CENTER), BorderLayout.NORTH); 
+JPanel panel = new JPanel(); 
+panel.add(new JLabel("Enter your name:")); 
+nameField = new JTextField(15); 
+panel.add(nameField); 
+JButton btn = new JButton("Greet"); 
+btn.addActionListener(this); 
+panel.add(btn); 
+add(panel, BorderLayout.CENTER); 
+greetingLabel = new JLabel("", SwingConstants.CENTER); 
+add(greetingLabel, BorderLayout.SOUTH); 
+setVisible(true); 
+} 
+public void actionPerformed(ActionEvent e) { 
+String name = nameField.getText().trim(); 
+greetingLabel.setText(name.isEmpty() ? "Hello there!" : "Hello, " + name + "!"); 
+} 
+public static void main(String[] args) { 
+new GreetingWebPage(); 
+} 
+}
