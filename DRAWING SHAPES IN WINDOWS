@@ -1,0 +1,21 @@
+import java.awt.*; 
+import javax.swing.*; 
+public class ShapesDemo extends JPanel { 
+@Override 
+protected void paintComponent(Graphics g) { 
+super.paintComponent(g); 
+g.setColor(Color.MAGENTA); 
+g.drawRect(100, 20, 50, 50); // x=100, y=20 
+g.setColor(Color.BLUE); 
+g.drawRect(75, 100, 100, 50); // x=75, y=100 
+g.setColor(Color.RED); 
+g.drawOval(75, 180, 100, 50); // x=100, y=180 
+} 
+public static void main(String[] args) { 
+JFrame frame = new JFrame("Shapes Demo"); 
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+frame.setSize(300, 300); 
+frame.add(new ShapesDemo()); 
+frame.setVisible(true); 
+} 
+}
