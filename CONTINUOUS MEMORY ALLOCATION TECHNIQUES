@@ -1,0 +1,29 @@
+import java.util.Scanner; 
+public class FirstFit { 
+public static void main(String[] args) { 
+Scanner sc = new Scanner(System.in); 
+System.out.print("Enter number of memory blocks: "); 
+int m = sc.nextInt(); 
+int[] blocks = new int[m]; 
+System.out.println("Enter block sizes:"); 
+for (int i = 0; i < m; i++) blocks[i] = sc.nextInt(); 
+System.out.print("Enter number of processes: "); 
+int n = sc.nextInt(); 
+int[] processes = new int[n]; 
+System.out.println("Enter process sizes:"); 
+for (int i = 0; i < n; i++) processes[i] = sc.nextInt(); 
+int[] alloc = new int[n]; 
+for (int i = 0; i < n; i++) { 
+alloc[i] = -1; // initially not allocated 
+for (int j = 0; j < m; j++) { 
+if (blocks[j] >= processes[i]) { 
+alloc[i] = j; 
+blocks[j] -= processes[i]; 
+break; 
+} } } 
+System.out.println("\nProcess\tSize\tBlock"); 
+for (int i = 0; i < n; i++) { 
+System.out.print((i + 1) + "\t" + processes[i] + "\t"); 
+System.out.println(alloc[i] == -1 ? "Not Allocated" : (alloc[i] + 1)); 
+} sc.close(); 
+} }
