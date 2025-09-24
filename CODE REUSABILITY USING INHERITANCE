@@ -1,0 +1,24 @@
+class Person { 
+String name; 
+int age; 
+void displayInfo() { 
+System.out.println("Name: " + name); 
+System.out.println("Age: " + age); 
+} 
+} 
+class Student extends Person { 
+String course; 
+void displayStudentInfo() { 
+displayInfo(); // reusing base class method 
+System.out.println("Course: " + course); 
+} 
+} 
+public class SingleInheritanceDemo { 
+public static void main(String[] args) { 
+Student student = new Student(); 
+student.name = "Rahul"; 
+student.age = 21; 
+student.course = "Computer Science"; 
+student.displayStudentInfo(); 
+} 
+}
