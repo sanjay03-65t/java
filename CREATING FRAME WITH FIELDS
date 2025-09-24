@@ -1,0 +1,48 @@
+import javax.swing.*; 
+import java.awt.event.*; 
+public class SimpleForm { 
+public static void main(String[] args) { 
+JFrame frame = new JFrame("User Form"); 
+frame.setSize(300, 300); 
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+frame.setLayout(null); 
+JLabel nameLabel = new JLabel("Name:"); 
+nameLabel.setBounds(20, 20, 80, 25); 
+JTextField nameField = new JTextField(); 
+nameField.setBounds(120, 20, 120, 25); 
+JLabel ageLabel = new JLabel("Age:"); 
+ageLabel.setBounds(20, 60, 80, 25); 
+JTextField ageField = new JTextField(); 
+ageField.setBounds(120, 60, 120, 25); 
+JLabel qualLabel = new JLabel("Qualification:"); 
+qualLabel.setBounds(20, 100, 100, 25); 
+JTextField qualField = new JTextField(); 
+qualField.setBounds(120, 100, 120, 25); 
+JLabel addressLabel = new JLabel("Address:"); 
+addressLabel.setBounds(20, 140, 80, 25); 
+JTextArea addressArea = new JTextArea(); 
+addressArea.setBounds(120, 140, 120, 60); 
+JButton submitButton = new JButton("Submit"); 
+submitButton.setBounds(100, 220, 100, 30); 
+submitButton.addActionListener(new ActionListener() { 
+public void actionPerformed(ActionEvent e) { 
+String data = "Name: " + nameField.getText() + 
+"\nAge: " + ageField.getText() + 
+"\nQualification: " + qualField.getText() + 
+"\nAddress: " + addressArea.getText(); 
+JOptionPane.showMessageDialog(frame, data); 
+} 
+}); 
+// Add to Frame 
+frame.add(nameLabel); 
+frame.add(nameField); 
+frame.add(ageLabel); 
+frame.add(ageField); 
+frame.add(qualLabel); 
+frame.add(qualField); 
+frame.add(addressLabel); 
+frame.add(addressArea); 
+frame.add(submitButton); 
+frame.setVisible(true); 
+} 
+}
